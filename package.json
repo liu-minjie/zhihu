@@ -1,0 +1,41 @@
+{
+  "name": "zhihu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "bin": {
+    "zhihu": "clearUsers.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liu-minjie/zhihu.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liu-minjie/zhihu/issues"
+  },
+  "homepage": "https://github.com/liu-minjie/zhihu#readme",
+  "dependencies": {
+    "async": "^2.6.0",
+    "body-parser": "~1.8.1",
+    "cookie-parser": "~1.3.3",
+    "express": "~4.9.0",
+    "graceful": "^1.0.0",
+    "handlebars": "^4.0.11",
+    "log4js": "^0.6.29",
+    "moment": "^2.20.1",
+    "mongodb-core": "^2.0.12",
+    "mongoose": "^4.5.10",
+    "promised-handlebars": "^2.0.1",
+    "recluster": "~0.4.5",
+    "redis": "^2.6.2",
+    "request": "^2.83.0",
+    "uuid": "^2.0.3",
+    "xss": "^0.2.13"
+  }
+}

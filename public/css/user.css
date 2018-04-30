@@ -1,0 +1,14 @@
+.ui.styled.accordion.user-list {
+	width: 80%; 
+	margin: 20px auto;
+}
+.desc-txt {
+	margin: 5px 0;
+}
+.content .description {
+	font-size: 16px;
+}
+.ui.divided.list > .item {
+	display: flex;
+	align-items: center;
+}

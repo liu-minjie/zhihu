@@ -1,0 +1,21 @@
+.ui.styled.accordion.answer-list {
+	width: 80%; 
+	margin: 20px auto;
+}
+.desc-txt {
+	margin: 5px 0;
+}
+.content .description {
+	font-size: 16px;
+}
+.ui.divided.list > .item {
+	display: flex;
+	align-items: center;
+}
+.title {
+	text-align: center;
+}
+
+.answer-list img {
+	border: 1px solid red;
+}

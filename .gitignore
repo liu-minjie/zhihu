@@ -1,0 +1,9 @@
+node_modules
+.DS_Store
+npm-debug.log
+logs
+*.zip
+.nyc_output
+test/cookie.json
+auth.json
+public/img
