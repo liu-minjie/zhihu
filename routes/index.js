@@ -7,6 +7,7 @@ const util = require('../util');
 const userApi = require('../models/user');
 const questionApi = require('../models/question');
 const answerApi = require('../models/answer');
+const cacheApi = require('../models/cache');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -75,6 +76,26 @@ router.get('/answerList', function(req, res, next) {
 	})
 });
 
+
+router.get('/update', function(req, res, next) {
+	const qid = req.query.qid;
+	cacheApi.update(+qid, (err, end) => {
+		res.send({
+			success: !err,
+			message: err ? err.message : '',
+			end: end
+		})
+	});
+});
+
+router.post('/answer/delete', function (req, res) {
+	const id = req.body.id;
+	answerApi.delete(id, (err) => {
+		res.send({
+			success: !err
+		})
+	})
+})
 
 const download = function(uri, filename, callback){
 	try {

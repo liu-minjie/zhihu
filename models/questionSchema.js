@@ -22,7 +22,7 @@ const authorSchema = new mongoose.Schema({
 
 const questionSchema = new mongoose.Schema({
 	id: {
-		type: String
+		type: Number
 	},
 	title: {
 		type: String

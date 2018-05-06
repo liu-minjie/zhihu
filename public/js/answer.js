@@ -25,6 +25,7 @@ function loadMore (next) {
               <a class="header" >${item.author.name}</a>
               <div class="description aid" data-aid="${item.id}">
                 ${item.content}
+                <a href="#" class="delete" data-aid="${item._id}">delete</a>
               </div>
             </div>
           </div>`
@@ -66,17 +67,57 @@ function loadMore (next) {
     });
 }
 
+$('body').on('click', function (e) {
+  var id = $(e.target).data('aid');
+  var self = e.target;
+  if (id) {
+    $.ajax({
+      url: '/answer/delete',
+      data: {
+        id: id
+      },
+      type: 'POST'
+    }).done(function (res) {
+      if (res.success) {
+        $(self).closest('.item').remove();
+      } else {
+        alert(res.success);
+      }
+    })
+  }
+})
+
 $('.title').html(decodeURIComponent(location.search.match(/name=([^&#]+)/)[1]))
 loadMore(true);
 
 $('body').append('<div class="ui button prev">prev</div>');
 $('body').append('<div class="ui button next">next</div>');
+$('body').prepend('<div class="ui button update">update</div>');
 
 $('.next').click(function () {
   loadMore(true);
 });
 $('.prev').click(function () {
   loadMore();
+});
+
+$('.update').click(function () {
+  if (loading) {
+    return
+  }
+  loading = true;
+  $.ajax({
+    url: '/update?qid=' + qid
+  }).done(function (res) {
+    loading = false;
+    if (!res.success) {
+      alert(res.message);
+    } else {
+      if (res.end) {
+        $('.update').text('没有更多了')
+      }
+    }
+  });
 });
 
 

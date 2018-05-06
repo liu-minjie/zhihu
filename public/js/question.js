@@ -18,6 +18,7 @@ function loadMore () {
               <a class="header" href="/answer?qid=${item.id}&name=${item.title}" target="_blank">${item.title}</a>
               <div class="description">
                 ${format(item.created * 1000)}
+                <a href="https://www.zhihu.com/question/${item.id}" target="_blank">(${item.answer_count})</a>
               </div>
             </div>
           </div>`

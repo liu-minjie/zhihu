@@ -20,6 +20,11 @@ exports.list = function(qid, page, cb) {
     cb(null, col)
   });
 }
+exports.delete = function(id, cb) {
+  Answer.deleteOne({
+    _id: id
+  }, cb);
+}
 
 exports.updateImag = function (aid, src, uid, cb) {
   Answer.findOne({

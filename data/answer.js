@@ -39,8 +39,12 @@ MongoClient.connect('mongodb://127.0.0.1:27017', {
             id: item.author.id
           }
         }
-      }))
-      .then((result) => {
+      }), {
+        ordered: false
+      }).then((result) => {
+        if (answers.length !== result.nInserted) {
+          console.log(answers.length, result.nInserted);
+        }
         arr.push(doc);
         next();
       }).catch((err) => {
