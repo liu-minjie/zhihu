@@ -30,6 +30,9 @@ const answerSchema = new mongoose.Schema({
 	created_time: {
 		type: Number
 	},
+	updated_time: {
+		type: Number
+	},
 	voteup_count: {
 		type: Number
 	},

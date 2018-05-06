@@ -30,6 +30,9 @@ const questionSchema = new mongoose.Schema({
 	created: {
 		type: Number
 	},
+	updated_time: {
+		type: Number
+	},
 	url: {
 		type: String
 	},

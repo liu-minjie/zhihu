@@ -5,7 +5,7 @@ MongoClient.connect('mongodb://127.0.0.1:27017', {
 }, (err, client) => {
 	const db = client.db('zhihu');
   const user = db.collection('user');
-  //const users = require('./users.json');
+  // const users = require('./users.json');
 
   user.insertMany(users.map((item) => {
     return {

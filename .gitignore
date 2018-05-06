@@ -7,3 +7,4 @@ logs
 test/cookie.json
 auth.json
 public/img
+data/answers/

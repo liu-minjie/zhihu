@@ -7,7 +7,7 @@ const Question = mongoose.model('Question', questionSchema, 'question');
 
 exports.list = function(page, cb) {
   Question.find().sort({
-    '_id': -1
+    '_id': 1
   }).skip(page * 20)
   .limit(20)
   .exec((err, col) => {

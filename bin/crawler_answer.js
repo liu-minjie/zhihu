@@ -2,10 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const request = require('request');
 const async = require('async');
-const moment = require('moment');
-const mongoose = require('mongoose');
 const auth = require('../auth');
-//const questionApi = require('../models/question');
 
 
 
@@ -14,7 +11,7 @@ const auth = require('../auth');
 ;(function () {
 	const save = {};
 	let questions = require('../data/question.json');
-	questions = questions.slice(questions.findIndex((item) => { return item.id == '27325912'}))
+	// questions = questions.slice(questions.findIndex((item) => { return item.id == '27325912'}))
 	
 	//console.log(questions.length);
 	//return
@@ -39,7 +36,7 @@ const auth = require('../auth');
 			return more;
 		}, (callback) => {
 			request({
-				url: `${url}?include=${include}&offset=${offset}&limit=${limit}&sort_by=default`,
+				url: `${url}?include=${include}&offset=${offset}&limit=${limit}&sort_by=created`,
 				headers: {
 					authorization: auth.data
 				}
@@ -47,6 +44,7 @@ const auth = require('../auth');
 				try {
 					data = JSON.parse(data);
 				} catch (e) {
+					console.log('offset: ', offset);
 					console.log(data);
 					process.exit(0);
 					data = {
@@ -61,13 +59,15 @@ const auth = require('../auth');
 				answers = answers.concat(data.data);
 				if (data.paging.is_end || offset > 500) {
 					more = false;
-					fs.writeFileSync(`../data/answers/${qid}.json`, JSON.stringify(answers, null, 1), 'utf8');
+					fs.writeFileSync(`../data/answers/${qid}.json`, JSON.stringify(answers, null, 2), 'utf8');
 				}
 				callback();
 			});
 		}, (err) => {
 			console.log(err, 'item done');
-			next(err);
+			setTimeout(() => {
+				next(err);
+			}, 1000);
 		})
 	}
 })();

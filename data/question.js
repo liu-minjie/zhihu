@@ -15,6 +15,7 @@ MongoClient.connect('mongodb://127.0.0.1:27017', {
       answer_count: item.answer_count,
       title: item.title,
       id: item.id,
+      updated_time: item.updated_time,
       author: {
         name: item.author.name,
         url: item.author.url,

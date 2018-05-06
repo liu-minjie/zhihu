@@ -8,10 +8,10 @@ const auth = require('../auth');
 
 const include = encodeURIComponent('data[*].created,answer_count,follower_count,author');
 const url = 'https://www.zhihu.com/api/v4/members/hu-guo-ba-98/following-questions';
-let limit = 100;
+let limit = 20;
 let offset = 0;
 let question = [];
-
+let newQuestion = []; //require('../data/question.json');
 const questionMap = require('../data/question_cache.json');
 
 function next () {
@@ -27,12 +27,18 @@ function next () {
 		offset += list.length;
 		question = question.concat(list);
 
-		if (data.paging.is_end || list.some((item) => {
-			return !!questionMap[item.id];
-		})) {
-			const newQuestion = question.filter((item) => {
+
+		let rep = 0;
+		list.forEach((item) => {
+			if (!!questionMap[item.id]) {
+				rep++;
+			}
+		});
+
+		if (data.paging.is_end || rep > 10) {
+			newQuestion = newQuestion.concat(question.filter((item) => {
 				return !questionMap[item.id];
-			});
+			}));
 			console.log(newQuestion.length);
 
 			question.forEach((item) => {
