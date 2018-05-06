@@ -20,6 +20,22 @@ const authorSchema = new mongoose.Schema({
 	}
 });
 
+const commentSchme = new mongoose.Schema({
+	id: {
+		type: Number
+	},
+	content: {
+		type: String
+	},
+	created_time: {
+		type: Number
+	},
+	is_parent_author: {
+		type: Boolean
+	},
+	author: authorSchema,
+	reply_to_author: authorSchema
+});
 const answerSchema = new mongoose.Schema({
 	qid: {
 		type: Number
@@ -44,6 +60,10 @@ const answerSchema = new mongoose.Schema({
 	},
 	author: {
 		type: authorSchema
+	},
+	comment: {
+		type: [commentSchme],
+		default: []
 	}
 });
 

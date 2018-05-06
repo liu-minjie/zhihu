@@ -1,6 +1,7 @@
+
 .ui.styled.accordion.question-list {
 	width: 80%; 
-	margin: 20px auto;
+	margin: 20px auto 60px;
 }
 .desc-txt {
 	margin: 5px 0;
@@ -11,4 +12,45 @@
 .ui.divided.list > .item {
 	display: flex;
 	align-items: center;
+}
+.header a {
+	color: #1a1a1a;
+	font-size: 18px;
+}
+.content .description {
+	color: #8590a6 !important;
+	font-size: 14px;
+	margin-top: 10px;
+}
+.description .answer-count {
+	margin-left: 10px;
+	color: #8590a6;
+}
+.list .content {
+	padding-top: 10px !important;
+	padding-bottom: 0 !important;
+}
+.fixed {
+	position: fixed;
+	top: 50%;
+	left: 10px;
+}
+.page {
+	border-bottom: 2px solid green;
+}
+.tag-wrap {
+	left: 50%;
+	margin-left: -200px;
+	margin-top: -100px;
+	display: none;
+}
+.tag.icon {
+	margin-left: 10px; 
+	font-size: 16px; 
+	color: green; 
+	cursor: pointer;
+}
+.tag-list {
+	display: inline-block; 
+	margin-left: 10px;
 }

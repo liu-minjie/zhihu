@@ -1,3 +1,4 @@
+
 .ui.styled.accordion.answer-list {
 	width: 80%; 
 	margin: 20px auto;
@@ -18,4 +19,60 @@
 
 .answer-list img {
 	border: 1px solid red;
+}
+
+
+.header .created {
+	color: #ccc;
+	font-size: 12px;
+	margin: 0 20px 0 10px;
+}
+.fixed {
+	position: fixed;
+	top: 50%;
+	left: 10px;
+}
+.fixed .button {
+	margin-bottom: 10px;
+}
+pre {
+	background-color: #f6f6f6;
+	padding: 5px;
+}
+
+.page {
+	border-bottom: 2px solid green;
+}
+
+.content .description {
+	margin-top: 10px;
+	line-height: 1.5;
+	position: relative;
+}
+.list .item {
+	position: relative;
+}
+.answer-op {
+	position: absolute;
+	right: 40px;
+	bottom: 5px;
+}
+.answer-op i {
+	cursor: pointer;
+	font-size: 18px;
+}
+.comment-list li {
+	display: flex;
+	margin-bottom: 10px;
+}
+.comment-author {
+	color: #000;
+	font-weight: bold;
+}
+.comment-content {
+	flex: 1;
+	margin-left: 5px;
+}
+.talk {
+	color: blue;
 }

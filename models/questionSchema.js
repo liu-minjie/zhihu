@@ -41,6 +41,9 @@ const questionSchema = new mongoose.Schema({
 	},
 	author: {
 		type: authorSchema
+	},
+	tags: {
+		type: String
 	}
 });
 

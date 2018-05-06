@@ -55,6 +55,21 @@ router.get('/questionList', function(req, res, next) {
 	})
 });
 
+router.post('/question/tag', function (req, res) {
+	const id = +req.body.id;
+	const tags = req.body.tags.trim().split(',');
+
+	console.log(id);
+	questionApi.addTag(id, tags.map((item) => {
+		return item.toLowerCase();
+	}).join(','), (err) => {
+		res.send({
+			success: !err
+		})
+	})
+});
+
+
 
 router.get('/answer', function(req, res, next) {
 	res.render('answer', {
@@ -95,7 +110,19 @@ router.post('/answer/delete', function (req, res) {
 			success: !err
 		})
 	})
-})
+});
+
+router.post('/answer/comment', function (req, res) {
+	const id = req.body.id;
+	answerApi.comment(id, (err, data) => {
+		res.send({
+			success: !err,
+			data: data
+		})
+	})
+});
+
+
 
 const download = function(uri, filename, callback){
 	try {

@@ -20,4 +20,20 @@ exports.list = function(page, cb) {
 }
 
 
+exports.addTag = function (id, tags, cb) {
+  console.log(tags);
+  Question.updateOne({
+    id: id
+  }, {
+    tags: tags
+  }, (err, doc) => {
+    if (err) {
+      console.log(err);
+      return cb(err);
+    }
+    cb();
+  });
+}
+
+
 exports.Question = Question;
